@@ -1,53 +1,236 @@
-import  { useState } from "react";
-import Learner from "../src/components/Learner";
+// import  { useState } from "react";
+// import Learner from "../src/components/Learner";
+ 
+// import AddForm  from "../src/components/Form";
 
+// import "./App.css";
+
+// const App = () => {
+//   const [learnerData,setLearnerData] = useState({
+//     learners: [
+//       {
+//         name: "Cait Yomorta",
+//         bio: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. ...",
+//         scores: [
+//           { date: "2018-02-08", score: 77 },
+//           { date: "2018-04-22", score: 92 },
+//           { date: "2018-09-15", score: 68 },
+//         ],
+//       },
+//       {
+//         name: "Holly Baird",
+//         bio: "Eum molestiae explicabo deserunt, maiores quod eaque omnis tenetur vero ducimus, ...",
+//         scores: [
+//           { date: "2018-12-14", score: 88 },
+//           { date: "2019-01-09", score: 79 },
+//           { date: "2019-02-23", score: 91 },
+//           { date: "2019-03-01", score: 95 },
+//         ],
+//       },
+//       {
+//         name: "Wes Mungia",
+//         bio: "Repudiandae veritatis recusandae quidem tenetur impedit, numquam incidunt enim, ...",
+//         scores: [
+//           { date: "2018-10-11", score: 62 },
+//           { date: "2018-11-24", score: 74 },
+//           { date: "2018-12-19", score: 85 },
+//         ],
+//       },
+//     ],
+//   });
+
+//   console.log("Learner data loaded", learnerData);
+
+//   return (
+//     <div>
+//     <h1>Learner's Score Details</h1>
+//      <form> 
+//      <label htmlFor="name">Name:</label>
+//      <input type ="text" name="name" value ={formData.name}/>
+
+
+
+      
+     
+     
+     
+      
+     
+     
+     
+     
+     
+//      </form>
+//       {learnerData.learners.map((learner, index) => (
+//         <Learner key={index} learner={learner} />
+//       ))}
+//     </div>
+//   );
+// };
+
+
+   
+//    AddForm();
+  
+//   const handleChange = (e) => {
+//    // const { name, value } = e.target;
+//     setFormData({
+//       ...formData,
+//       [e.target.name]: e.target.value, 
+//     });
+//   };
+
+   
+//   const handleSubmit = (e) => {
+//     e.preventDefault(); 
+
+    
+//     const newLearner = {
+//       name: formData.name,
+//       bio: formData.bio,
+//       scores: [], 
+//     };
+
+//   }
+//    export default App;
+
+//Adding form
+import { useState } from "react";
 import "./App.css";
+import Learner from "./components/Learner";
 
-const App = () => {
-  const [learnerData,setLearnerData] = useState({
-    learners: [
+const data = [
+  {
+    name: "Cait Yomorta",
+    bio: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus placeat nostrum explicabo? Voluptatibus expedita saepe officia optio, commodi totam ratione laudantium ipsum porro molestias, quasi nulla minus vitae laboriosam corrupti Delectus inventore explicabo est odit incidunt rem a recusandae eum pariatur. Aperiam doloremque blanditiis harum voluptate animi fugit beatae asperiores quo, dignissimos sed illum veniam eum accusantium nulla quod voluptatum",
+    scores: [
       {
-        name: "Cait Yomorta",
-        bio: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. ...",
-        scores: [
-          { date: "2018-02-08", score: 77 },
-          { date: "2018-04-22", score: 92 },
-          { date: "2018-09-15", score: 68 },
-        ],
+        date: "2018-02-08",
+        score: 77,
       },
       {
-        name: "Holly Baird",
-        bio: "Eum molestiae explicabo deserunt, maiores quod eaque omnis tenetur vero ducimus, ...",
-        scores: [
-          { date: "2018-12-14", score: 88 },
-          { date: "2019-01-09", score: 79 },
-          { date: "2019-02-23", score: 91 },
-          { date: "2019-03-01", score: 95 },
-        ],
+        date: "2018-04-22",
+        score: 92,
       },
       {
-        name: "Wes Mungia",
-        bio: "Repudiandae veritatis recusandae quidem tenetur impedit, numquam incidunt enim, ...",
-        scores: [
-          { date: "2018-10-11", score: 62 },
-          { date: "2018-11-24", score: 74 },
-          { date: "2018-12-19", score: 85 },
-        ],
+        date: "2018-09-15",
+        score: 68,
       },
     ],
+  },
+  {
+    name: "Holly Baird",
+    bio: "Eum molestiae explicabo deserunt, maiores quod eaque omnis tenetur vero ducimus, magnam autem! Quia facere quaerat eum repudiandae dolorum eligendi iure quae. Eos id possimus accusantium, earum animi modi hic.",
+    scores: [
+      {
+        date: "2018-12-14",
+        score: 88,
+      },
+      {
+        date: "2019-01-09",
+        score: 79,
+      },
+      {
+        date: "2019-02-23",
+        score: 91,
+      },
+      {
+        date: "2019-03-01",
+        score: 95,
+      },
+    ],
+  },
+  {
+    name: "Wes Mungia",
+    bio: "Repudiandae veritatis recusandae quidem tenetur impedit, numquam incidunt enim, adipisci id cupiditate asperiores nam perferendis. Facere odit laborum ipsum autem repellendus natus eius doloremque ullam perferendis. Enim repellendus ut veniam?",
+    scores: [
+      {
+        date: "2018-10-11",
+        score: 62,
+      },
+      {
+        date: "2018-11-24",
+        score: 74,
+      },
+      {
+        date: "2018-12-19",
+        score: 85,
+      },
+    ],
+  },
+];
+
+function App() {
+  const [learnersData, setLearnersData] = useState({ learners: data });
+  const [formData, setFormData] = useState({
+    name: "",
+    bio: "",
+    // scores: []
   });
 
-  console.log("Learner data loaded", learnerData);
+  /**
+   * Handle Change
+   * @param {*} e 
+   */
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  };
+
+  /**
+   * HandleSubmit
+   * @param {*} e 
+   */
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    const newLearner = {...formData, scores: []};
+
+    // updating the learnersData with the newLearner
+    setLearnersData({
+      learners: [newLearner, ...learnersData.learners]
+    })   
+    
+    // creates the formData
+    setFormData({
+      name: '',
+      bio: ''
+    })
+  }
 
   return (
-    <div>
-    <h1>Learner's Score Details</h1>
-      {learnerData.learners.map((learner, index) => (
-        <Learner key={index} learner={learner} />
-      ))}
-    </div>
+    <>
+      <h1>Learners App</h1>
+
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Name: </label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <br />
+
+        <label htmlFor="bio">Bio: </label>
+        <input
+          type="text"
+          name="bio"
+          value={formData.bio}
+          onChange={handleChange}
+        />
+
+        <br />
+        <input type="submit" value="Add" />
+      </form>
+
+      {learnersData.learners.map((learner, index) => {
+        return <Learner learner={learner} key={index} />;
+      })}
+    </>
   );
-};
+}
 
 export default App;
-
