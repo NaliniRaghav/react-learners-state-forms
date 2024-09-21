@@ -1,6 +1,6 @@
 // import  { useState } from "react";
 // import Learner from "../src/components/Learner";
- 
+
 // import AddForm  from "../src/components/Form";
 
 // import "./App.css";
@@ -44,22 +44,10 @@
 //   return (
 //     <div>
 //     <h1>Learner's Score Details</h1>
-//      <form> 
+//      <form>
 //      <label htmlFor="name">Name:</label>
 //      <input type ="text" name="name" value ={formData.name}/>
 
-
-
-      
-     
-     
-     
-      
-     
-     
-     
-     
-     
 //      </form>
 //       {learnerData.learners.map((learner, index) => (
 //         <Learner key={index} learner={learner} />
@@ -68,27 +56,23 @@
 //   );
 // };
 
-
-   
 //    AddForm();
-  
+
 //   const handleChange = (e) => {
 //    // const { name, value } = e.target;
 //     setFormData({
 //       ...formData,
-//       [e.target.name]: e.target.value, 
+//       [e.target.name]: e.target.value,
 //     });
 //   };
 
-   
 //   const handleSubmit = (e) => {
-//     e.preventDefault(); 
+//     e.preventDefault();
 
-    
 //     const newLearner = {
 //       name: formData.name,
 //       bio: formData.bio,
-//       scores: [], 
+//       scores: [],
 //     };
 
 //   }
@@ -170,35 +154,35 @@ function App() {
 
   /**
    * Handle Change
-   * @param {*} e 
+   * @param {*} e
    */
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   };
 
   /**
    * HandleSubmit
-   * @param {*} e 
+   * @param {*} e
    */
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    const newLearner = {...formData, scores: []};
+    const newLearner = { ...formData, scores: [] };
 
     // updating the learnersData with the newLearner
-    setLearnersData({
-      learners: [newLearner, ...learnersData.learners]
-    })   
-    
+    setLearnersData((prevState) => ({
+      learners: [newLearner, ...learnersData.learners],
+    }));
+
     // creates the formData
     setFormData({
-      name: '',
-      bio: ''
-    })
-  }
+      name: "",
+      bio: "",
+    });
+  };
 
   return (
     <>
